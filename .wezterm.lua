@@ -7,7 +7,7 @@ config.color_scheme = 'Tokyo Night'
 config.colors = {
     scrollbar_thumb = "#ffffff",
 }
-
+--test
 -- padding
 config.window_padding = {
   left = 2,
