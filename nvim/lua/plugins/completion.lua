@@ -53,37 +53,38 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				sources = cmp.config.sources({
-					-- { name = "luasnip" },
-					-- { name = "nvim_lsp" },
+					{ name = "luasnip" },
+					{ name = "nvim_lsp" },
+					-- { name = "treesitter"},
 					-- { name = "treesitter", max_item_count = 5 },
-					{
-						name = "luasnip",
-						priority = 150,
-						group_index = 1,
-						option = { show_autosnippets = true, use_show_condition = false },
-					},
-					{
-						name = "nvim_lsp",
-						priority = 100,
-						group_index = 1,
-					},
-					{
-						name = "treesitter",
-						max_item_count = 5,
-						priority = 90,
-						group_index = 5,
-						entry_filter = function(entry, vim_item)
-							if entry.kind == 15 then
-								local cursor_pos = vim.api.nvim_win_get_cursor(0)
-								local line = vim.api.nvim_get_current_line()
-								local next_char = line:sub(cursor_pos[2] + 1, cursor_pos[2] + 1)
-								if next_char == '"' or next_char == "'" then
-									vim_item.abbr = vim_item.abbr:sub(1, -2)
-								end
-							end
-							return vim_item
-						end,
-					},
+					-- {
+					-- 	name = "luasnip",
+					-- 	priority = 150,
+					-- 	group_index = 1,
+					-- 	option = { show_autosnippets = true, use_show_condition = false },
+					-- },
+					-- {
+					-- 	name = "nvim_lsp",
+					-- 	priority = 100,
+					-- 	group_index = 1,
+					-- },
+					-- {
+					-- 	name = "treesitter",
+					-- 	max_item_count = 5,
+					-- 	priority = 90,
+					-- 	group_index = 5,
+					-- 	entry_filter = function(entry, vim_item)
+					-- 		if entry.kind == 15 then
+					-- 			local cursor_pos = vim.api.nvim_win_get_cursor(0)
+					-- 			local line = vim.api.nvim_get_current_line()
+					-- 			local next_char = line:sub(cursor_pos[2] + 1, cursor_pos[2] + 1)
+					-- 			if next_char == '"' or next_char == "'" then
+					-- 				vim_item.abbr = vim_item.abbr:sub(1, -2)
+					-- 			end
+					-- 		end
+					-- 		return vim_item
+					-- 	end,
+					-- },
 				}, {
 					{ name = "buffer" },
 				}),
@@ -91,4 +92,3 @@ return {
 		end,
 	},
 }
-

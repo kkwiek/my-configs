@@ -18,7 +18,8 @@ vim.opt.rtp:prepend(lazypath)
 
 -- lazy end
 
-require("vim-options")
-require("vim-key-map")
+require("config.vim-options")
+require("config.vim-key-map")
+require("config.lsp")
 require("lazy").setup("plugins")
 

@@ -67,7 +67,7 @@ return {
 		end, { desc = "Harpoon add file" })
 
 		vim.keymap.set("n", "<leader>hd", function()
-			harpoon:list():add()
+			harpoon:list():remove()
 			print("[Harpoon]: Removed file")
 		end, { desc = "Harpoon remove file" })
 
@@ -79,11 +79,11 @@ return {
 			toggle_telescope(harpoon:list())
 		end, { desc = "Open harpoon telescop window" })
 
-		vim.keymap.set("n", "<leader>h[", function()
+		vim.keymap.set("n", "h[", function()
 			harpoon:list():prev()
 		end, { desc = "Harpoon previous file" })
 
-		vim.keymap.set("n", "<leader>h]", function()
+		vim.keymap.set("n", "h]", function()
 			harpoon:list():next()
 		end, { desc = "Harpoon next file" })
 	end,

@@ -1,9 +1,12 @@
 vim.cmd("set tabstop=2")
-vim.cmd("set expandtab")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
-vim.cmd("set autoindent")
-vim.cmd("set smartindent")
+vim.cmd("set expandtab")
+
+vim.o.autoindent = true
+vim.o.smartindent = true
+vim.o.copyindent = true      -- copy indent structure from previous line
+vim.o.preserveindent = true  -- keep as much indent as possible
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"

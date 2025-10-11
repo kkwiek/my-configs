@@ -1,43 +1,32 @@
--- buffers navigation
--- vim.keymap.set("n", "<C-h>", "<cmd>bprev<CR>", {})
--- vim.keymap.set("n", "<C-l>", "<cmd>bnext<CR>", {})
--- vim.keymap.set("n", "<C-DEL>", "<cmd>bprev<CR><cmd>bdelete#<CR>", {})
+local utilNavigate = require("../utils/file_navigate")
+
+vim.keymap.set("n", "]f", function()
+	utilNavigate.navigate_file("next")
+end)
+vim.keymap.set("n", "[f", function()
+	utilNavigate.navigate_file("prev")
+end)
 
 -- neo-tree
--- vim.keymap.set("n", "<C-t>", ":Neotree filesystem reveal toggle left<CR>", { desc = "Toggle Neotree" })
 vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal float<CR>", { desc = "Show Neotree" })
 
 -- undotree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
--- lsp
-vim.keymap.set("n", "<leader>cn", vim.lsp.buf.rename, {})
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
-vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, {})
-vim.keymap.set("n", "<leader>cr", vim.lsp.buf.references, {})
-vim.keymap.set("n", "<leader>ci", vim.lsp.buf.implementation, {})
+-- LSP
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+vim.keymap.set("n", "gre", vim.diagnostic.open_float, {})
+vim.keymap.set("n", "grd", vim.lsp.buf.definition, {})
 
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {})
-vim.keymap.set("n", "<leader>]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
-vim.keymap.set("n", "<leader>[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-
--- none-ls
 vim.keymap.set("n", "<leader>bf", function()
-  -- Never request typescript-language-server for formatting
-  vim.lsp.buf.format({
-    async = false,
-    filter = function(client)
-      return client.name ~= "ts_ls"
-    end,
-  })
+	vim.lsp.buf.format({
+		async = false,
+		filter = function(client)
+			return client.name ~= "ts_ls"
+		end,
+	})
 end, {})
 
--- Toggle spell checking with <leader>s
--- vim.keymap.set("n", "<leader>s", function()
--- 	vim.opt.spell = not vim.opt.spell:get()
--- end, { desc = "Toggle spell checking" })
---
 -- debugging.lua
 -- telescope.lua
 -- harpoon.lua

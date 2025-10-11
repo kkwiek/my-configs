@@ -3,6 +3,9 @@ return {
 		"tpope/vim-fugitive",
 	},
 	{
+		"sindrets/diffview.nvim",
+	},
+	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("gitsigns").setup({
@@ -35,7 +38,10 @@ return {
 
 					-- Actions
 					map("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
-          map('n', '<leader>gr', gitsigns.reset_hunk)
+					map("n", "<leader>gr", gitsigns.reset_hunk)
+					map("n", "<leader>gb", function()
+						gitsigns.blame_line()
+					end)
 				end,
 			})
 		end,
