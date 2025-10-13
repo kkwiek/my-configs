@@ -77,14 +77,3 @@ return {
   },
 }
 
---[[
-lsp.eslint.setup({
-  capabilites = capabilites
-  settings = {
-    nodePath = "home/../mui-platform"
-    options = {
-      overrideConfigFile = "home/../mui-platform/eslit/confing.json"
-    }
-  },
-})
---]]
