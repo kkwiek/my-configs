@@ -43,12 +43,6 @@ return {
 					find_files = {
 						hidden = true,
 					},
-					marks = {
-						attach_mappings = function(_, map)
-							map({ "i", "n" }, "<C-d>", require("telescope.actions").delete_mark)
-							return true
-						end,
-					},
 					buffers = {
 						mappings = {
 							i = {
