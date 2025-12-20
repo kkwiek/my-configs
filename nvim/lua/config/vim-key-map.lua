@@ -23,13 +23,12 @@ vim.keymap.set("n", "<leader>bf", function()
 		async = false,
 		filter = function(client)
 			return client.name ~= "ts_ls"
-		end,
+		end
 	})
 end, {})
 
 -- debugging.lua
 -- telescope.lua
--- harpoon.lua
 
 -- custom
 vim.keymap.set("n", "G", "Gzz")

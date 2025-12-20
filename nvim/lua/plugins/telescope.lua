@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "-1.1.8",
+		tag = "v0.2.0",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			local builtin = require("telescope.builtin")
@@ -30,12 +30,7 @@ return {
 				builtin.live_grep({ cwd = utils.buffer_dir() })
 			end, { desc = "Grep files in current directory [D]irectory [G]rep" })
 
-			vim.keymap.set(
-				"n",
-				"<leader>bs",
-				builtin.lsp_document_symbols,
-				{ desc = "Find Symbols in current buffer" }
-			)
+			vim.keymap.set("n", "<leader>bs", builtin.lsp_document_symbols, { desc = "Find Symbols in current buffer" })
 		end,
 	},
 	{
@@ -47,6 +42,12 @@ return {
 				pickers = {
 					find_files = {
 						hidden = true,
+					},
+					marks = {
+						attach_mappings = function(_, map)
+							map({ "i", "n" }, "<C-d>", require("telescope.actions").delete_mark)
+							return true
+						end,
 					},
 					buffers = {
 						mappings = {

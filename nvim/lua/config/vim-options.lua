@@ -7,6 +7,7 @@ vim.o.autoindent = true
 vim.o.smartindent = true
 vim.o.copyindent = true      -- copy indent structure from previous line
 vim.o.preserveindent = true  -- keep as much indent as possible
+-- vim.opt.virtualedit = "onemore"
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
