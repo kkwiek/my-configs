@@ -25,6 +25,10 @@ vim.opt.scrolloff = 8
 vim.opt.colorcolumn = "80,120"
 
 vim.o.undofile = true
+
+vim.opt.exrc = true
+vim.opt.secure = true
+vim.opt.shadafile = ".vim/project.shada"
 -- vim.opt.swapfile = false
 -- vim.opt.backup = false
 -- vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
