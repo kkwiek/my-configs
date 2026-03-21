@@ -142,7 +142,6 @@ return {
           { name = "luasnip",  priority = 1100, group_index = 1, keyword_length = 2 },
           { name = "nvim_lsp", priority = 1000, group_index = 1, max_item_count = 50 },
           { name = "path",     priority = 500 },
-          -- opcjonalnie:
           -- { name = "nvim_lua" },
           -- { name = "treesitter", priority = 1050, group_index = 1, max_item_count = 5 },
         }, {
