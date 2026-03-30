@@ -8,14 +8,14 @@ return {
 					enable = true,
 					lookahead = true,
 					keymaps = {
-						["am"] = { query = "@function.outer", desc = "Select outer part of a function definition" },
-						["im"] = { query = "@function.inner", desc = "Select inner part of a function definition" },
+						["af"] = { query = "@function.outer", desc = "Select outer part of a function definition" },
+						["if"] = { query = "@function.inner", desc = "Select inner part of a function definition" },
 
 						["ac"] = { query = "@class.outer", desc = "Select outer part of a class" },
 						["ic"] = { query = "@class.inner", desc = "Select inner part of a class" },
 
-						["if"] = { query = "@conditional.inner", desc = "Select inner part of if condition" },
-						["af"] = { query = "@conditional.outer", desc = "Select outer part of if condition" },
+						["io"] = { query = "@conditional.inner", desc = "Select inner part of if condition" },
+						["ao"] = { query = "@conditional.outer", desc = "Select outer part of if condition" },
 
 						["il"] = { query = "@loop.inner", desc = "Select inner part of if loop" },
 						["al"] = { query = "@loop.outer", desc = "Select outer part of if loop" },
@@ -23,7 +23,8 @@ return {
 						["l="] = { query = "@assignment.lhs", desc = "Select left hand side of an assignment" },
 						["r="] = { query = "@assignment.rhs", desc = "Select right hand side of an assignment" },
 
-						["sa"] = {query = "@statement.outer"}
+						["as"] = { query = "@statement.outer" },
+						["is"] = { query = "@statement.inner" },
 					},
 				},
 				swap = {
