@@ -1,4 +1,5 @@
 local utilNavigate = require("../utils/file_navigate")
+local copyFilePath = require("../utils/copy_file_path")
 
 vim.keymap.set("n", "]f", function()
 	utilNavigate.navigate_file("next")
@@ -6,6 +7,14 @@ end)
 vim.keymap.set("n", "[f", function()
 	utilNavigate.navigate_file("prev")
 end)
+
+vim.keymap.set("n", '""p', function()
+  copyFilePath("relative")
+end, { desc = "Copy relative file path" })
+
+vim.keymap.set("n", '""P', function()
+  copyFilePath("absolute")
+end, { desc = "Copy absolute file path" })
 
 -- neo-tree
 vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal float<CR>", { desc = "Show Neotree" })
