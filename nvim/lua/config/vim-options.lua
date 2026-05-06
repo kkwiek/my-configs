@@ -31,33 +31,18 @@ vim.opt.secure = true
 vim.opt.shadafile = ".vim/project.shada"
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
+vim.api.nvim_create_autocmd("SwapExists", {
+  callback = function()
+    local swap = vim.v.swapname
+    if vim.fn.getftime(swap) > os.time() - 600 then
+      vim.v.swapchoice = "r"
+    else
+      vim.v.swapchoice = "e"
+    end
+  end,
+})
+
 -- vim.opt.swapfile = false
 -- vim.opt.backup = false
 -- vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "go",
---   callback = function()
---     vim.opt.spell = true     -- Enable spell checking
---     vim.opt.spellcapcheck = "" -- Disable spellcapcheck
---   end,
--- })
---
--- vim.opt.spelllang = "en_us"
--- vim.opt.spell = true
--- vim.opt.spellcapcheck = ""
--- vim.cmd([[
---   highlight SpellBad gui=undercurl guisp=Red
---   highlight SpellCap gui=undercurl guisp=Blue
---   highlight SpellRare gui=undercurl guisp=Yellow
---   highlight SpellLocal gui=undercurl guisp=Green
--- ]])
---
--- -- Enable spell checking for specific file types
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = { "javascript", "python", "lua", "golang", "go" },
---   callback = function()
---     vim.opt.spell = true -- Enable spell checking
---     vim.opt.spellcapcheck = "" -- Disable spellcapcheck
---   end,
--- })

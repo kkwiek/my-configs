@@ -52,6 +52,20 @@ return {
 					},
 				},
 				defaults = {
+					mappings = {
+						i = {
+							["<C-a>"] = function(prompt_bufnr)
+								actions.send_selected_to_qflist(prompt_bufnr)
+								actions.open_qflist(prompt_bufnr)
+							end,
+						},
+						n = {
+							["<C-a>"] = function(prompt_bufnr)
+								actions.send_selected_to_qflist(prompt_bufnr)
+								actions.open_qflist(prompt_bufnr)
+							end,
+						},
+					},
 					vimgrep_arguments = {
 						"rg",
 						"--color=never",
