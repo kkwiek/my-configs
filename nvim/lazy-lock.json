@@ -42,5 +42,6 @@
   "treesj": { "branch": "main", "commit": "186084dee5e9c8eec40f6e39481c723dd567cb05" },
   "trouble.nvim": { "branch": "main", "commit": "40c5317a6e90fe3393f07b0fee580d9e93a216b4" },
   "undotree": { "branch": "master", "commit": "0f1c9816975b5d7f87d5003a19c53c6fd2ff6f7f" },
-  "vim-fugitive": { "branch": "master", "commit": "61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4" }
+  "vim-fugitive": { "branch": "master", "commit": "61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4" },
+  "yazi.nvim": { "branch": "main", "commit": "8d6c25cb4e7c5702d6cd5a263cb36129fa78aa4c" }
 }
