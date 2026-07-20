@@ -21,5 +21,18 @@ vim.opt.rtp:prepend(lazypath)
 require("config.vim-options")
 require("config.vim-key-map")
 require("config.lsp")
-require("lazy").setup("plugins")
+-- require("lazy").setup("plugins")
 
+-- Load local config overrides (gitignored)
+local local_init = vim.fn.stdpath("config") .. "/lua/local/init.lua"
+if vim.uv.fs_stat(local_init) then
+    require("local")
+end
+
+-- Setup lazy with plugins + local plugins (if they exists)
+local lazy_spec = {{ import = "plugins" }}
+local local_plugins = vim.fn.stdpath("config") .. "/lua/local/plugins"
+if vim.uv.fs_stat(local_plugins) then
+  table.insert(lazy_spec, { import = "local.plugins" })
+end
+require("lazy").setup(lazy_spec)
